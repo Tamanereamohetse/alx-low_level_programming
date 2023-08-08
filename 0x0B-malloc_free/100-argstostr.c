@@ -7,7 +7,7 @@
  * @ac: the argument count
  * @av: the argument vector
  *
- * RReturn: ...
+ * Return: ...
  */
 char *argstostr(int ac, char **av)
 {
@@ -19,7 +19,7 @@ char *argstostr(int ac, char **av)
 
 	while (i < ac)
 	{
-		while(av[i][j])
+		while (av[i][j])
 		{
 			ch++;
 			j++;
