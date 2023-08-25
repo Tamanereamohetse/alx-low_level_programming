@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include "list.h"
+#include "lists.h"
 
 /**
  * prints all the elements of a list_t list
@@ -19,6 +19,5 @@ size_t print_list(const list_t *h)
 	h = h->next;
 	s++;
 }
-
-return (s)
+return (s);
 }
