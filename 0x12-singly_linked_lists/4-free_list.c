@@ -3,8 +3,7 @@
 
 /**
  * free_list - frees a list_t list
- *@head: list_t to be freed
- *
+ * @head: list_t to be freed
  */
 void free_list(list_t *head)
 {
@@ -16,5 +15,5 @@ void free_list(list_t *head)
 	free(head->str);
 	free(head);
 	head = temp;
-	}
+}
 }
