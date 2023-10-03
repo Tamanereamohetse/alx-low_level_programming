@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+char *create_buffer(char *file);
+void close_file(int fd);
+
 /**
  * create_buffer- copies the content of a file to another file
  * @file: the name of the file
@@ -40,8 +43,8 @@ void close_file(int fd)
 
 /**
  * main- copies the content of a file to another file
- * @argv: an array of pointers
- * @argc: an argument
+ * @argc: an array of pointers
+ * @argv: pointer to an argument
  *
  * Return: 0 on success
  */
@@ -78,14 +81,11 @@ int main(int argc, char *argv[])
 
 	rd = read(from, buff, 1024);
 	to = open(argv[2], O_WRONLY | O_APPEND);
-	}
+	} while (wr > 0);
 
-	while (wr > 0);
-	}
 	free(buff);
 	close_file(from);
 	close_file(to);
 
 	return (0);
 }
-
