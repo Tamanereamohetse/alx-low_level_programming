@@ -21,7 +21,7 @@ void close_elf(int elf);
  * check_elf- checks for an elf file
  * @e_ident: pointer to an array
  *
- * Description: If the file is not an ELF fie exit code98
+ * Description: If the file is not an ELF file - exit code98
  */
 void check_elf(unsigned char *e_ident)
 {
@@ -122,7 +122,7 @@ void print_version(unsigned char *e_ident)
 	default:
 	printf("\n");
 	break;
-	
+
 }
 
 /**
@@ -253,12 +253,12 @@ void close_elf(int elf)
  *
  * Return: 0 on success
  */
-int main(int _attribute_((_unused_))argc, char *argv[])
+int main(int argc, char *argv[])
 {
 	Elf64_Ehdr *header;
 	int a, b;
 
-	a = open(argv[1], O_RONLY);
+	a = open(argv[1], O_RDONLY);
 	if (a == -1)
 	{
 		dprintf(STDERR_FILENO, "ERROR: Can't read file %s\n", argv[1]);
@@ -268,10 +268,10 @@ int main(int _attribute_((_unused_))argc, char *argv[])
 	if (header == NULL)
 	{
 		close_elf(a);
-		dprintf(STDEER_FILENO, "Error:Can't read file %s\n", argv[1]);
+		dprintf(STDERR_FILENO, "Error:Can't read file %s\n", argv[1]);
 		exit(98);
 	}
-	b = read(a, header, sizeof(ELF64_Ehdr));
+	b = read(a, header, sizeof(Elf64_Ehdr));
 	if (b == -1)
 	{
 		free(header);
