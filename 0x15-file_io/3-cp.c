@@ -50,7 +50,7 @@ void close_file(int fd)
  */
 int main(int argc, char *argv[])
 {
-	int from, to, rd, wr;
+	int from, to, rd;
 	char *buff;
 
 	if (argc != 3)
@@ -73,7 +73,7 @@ int main(int argc, char *argv[])
 
 	rd = read(from, buff, 1024);
 	to = open(argv[2], O_WRONLY | O_APPEND);
-	} while (wr > 0);
+	} while (rd > 0);
 
 	free(buff);
 	close_file(from);
